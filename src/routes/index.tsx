@@ -79,22 +79,22 @@ function Index() {
       {/* Hero */}
       <section className="relative mx-auto grid max-w-6xl gap-12 px-6 pt-16 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <div className="animate-rise">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs text-muted-foreground">
+            <Sparkles className="h-3.5 w-3.5 text-primary animate-hue" />
             Personal health, simplified
           </p>
           <h1 className="font-display text-5xl leading-[1.02] sm:text-6xl md:text-7xl">
-            Train smarter.
+            <span className="text-gradient">Train smarter.</span>
             <br />
             <span className="relative inline-block">
-              <span className="relative z-10 text-primary">Eat sharper.</span>
+              <span className="relative z-10 text-gradient">Eat sharper.</span>
               <span
                 aria-hidden
-                className="absolute inset-x-0 bottom-2 -z-0 h-3 rounded-full bg-[oklch(0.88_0.12_135/_0.65)]"
+                className="absolute inset-x-0 bottom-2 -z-0 h-3 rounded-full bg-aurora opacity-60 blur-sm animate-hue"
               />
             </span>
             <br />
-            Live <em className="not-italic italic-fraunces text-primary/90">stronger.</em>
+            Live <em className="not-italic italic-fraunces text-gradient">stronger.</em>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
             BMI, daily calories &amp; macros for your goal, a weekly workout plan
