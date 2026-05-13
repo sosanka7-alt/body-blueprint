@@ -4,8 +4,9 @@ import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
 import { bmiCategory } from "@/lib/health";
 import type { WorkoutDay } from "@/lib/workout";
+import { buildDietChart, hydrationTarget, type DietPreference } from "@/lib/diet";
 import { Button } from "@/components/ui/button";
-import { Camera, Dumbbell, Loader2 } from "lucide-react";
+import { Camera, Dumbbell, Loader2, Utensils, Droplets, Leaf, Drumstick } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({ meta: [{ title: "Dashboard — Verda" }] }),
@@ -23,6 +24,8 @@ type Profile = {
   goal: string | null;
   workout_location: string | null;
   workout_plan: WorkoutDay[] | null;
+  diet_preference: DietPreference | null;
+  weight_kg: number | null;
   onboarded: boolean | null;
 };
 
@@ -91,6 +94,13 @@ function Dashboard() {
         </div>
       </section>
 
+      <DietSection
+        targetCalories={p.target_calories ?? p.maintenance_calories ?? 2000}
+        preference={(p.diet_preference ?? "non_veg") as DietPreference}
+        weightKg={p.weight_kg ?? 70}
+        proteinTarget={p.protein_g ?? 0}
+      />
+
       <section className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-accent/40 p-6">
         <div>
           <h3 className="font-display text-xl flex items-center gap-2"><Camera className="h-5 w-5 text-primary" /> Snap a meal</h3>
@@ -109,5 +119,51 @@ function Stat({ label, value, sub, highlight }: { label: string; value: React.Re
       <p className="mt-2 font-display text-3xl">{value}</p>
       {sub && <p className={`mt-1 text-sm ${highlight ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{sub}</p>}
     </div>
+  );
+}
+
+function DietSection({
+  targetCalories, preference, weightKg, proteinTarget,
+}: { targetCalories: number; preference: DietPreference; weightKg: number; proteinTarget: number }) {
+  const chart = buildDietChart(targetCalories, preference);
+  const water = hydrationTarget(weightKg);
+  const PrefIcon = preference === "veg" ? Leaf : Drumstick;
+  return (
+    <section className="mt-10 rounded-2xl border border-border bg-card p-6 shadow-soft">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h2 className="font-display text-2xl flex items-center gap-2">
+          <Utensils className="h-5 w-5 text-primary" /> Daily diet chart
+        </h2>
+        <div className="flex items-center gap-3 text-sm">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1">
+            <PrefIcon className="h-4 w-4 text-primary" />
+            {preference === "veg" ? "Vegetarian" : "Non-vegetarian"}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1">
+            <Droplets className="h-4 w-4 text-primary" /> {water} L water
+          </span>
+          <span className="rounded-full border border-border bg-background px-3 py-1">
+            ~{targetCalories} kcal · {proteinTarget}g protein
+          </span>
+        </div>
+      </div>
+      <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {chart.map((m) => (
+          <div key={m.name} className="rounded-xl border border-border bg-background p-4">
+            <div className="flex items-baseline justify-between">
+              <span className="font-display text-lg">{m.name}</span>
+              <span className="text-xs uppercase tracking-wider text-muted-foreground">{m.calories} kcal</span>
+            </div>
+            <p className="text-xs text-muted-foreground">{m.time}</p>
+            <ul className="mt-3 space-y-1.5 text-sm list-disc list-inside marker:text-primary">
+              {m.options.map((o, i) => <li key={i}>{o}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <p className="mt-4 text-xs text-muted-foreground">
+        Pick one option per meal. Portions auto-scale with your target calories. Adjust around allergies or medical advice.
+      </p>
+    </section>
   );
 }
