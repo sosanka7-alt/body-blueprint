@@ -101,12 +101,12 @@ function Index() {
             for the gym or your living room, and AI that reads any meal from a photo.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="shadow-glow">
+            <Button asChild size="lg" className="shadow-glow animate-glow bg-aurora text-white border-0 hover:opacity-90">
               <Link to="/auth">
                 Start free <Flame className="ml-1 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="glass border-white/20 hover:bg-white/10">
               <Link to="/dashboard">View dashboard</Link>
             </Button>
           </div>
