@@ -137,11 +137,11 @@ function Index() {
       </section>
 
       {/* Marquee */}
-      <div className="relative z-10 border-y border-border bg-card/60 py-4 backdrop-blur">
+      <div className="relative z-10 border-y border-white/10 glass py-4">
         <div className="flex overflow-hidden">
-          <div className="flex shrink-0 animate-marquee gap-12 pr-12 font-display text-2xl text-muted-foreground">
+          <div className="flex shrink-0 animate-marquee gap-12 pr-12 font-display text-2xl">
             {[...marqueeItems, ...marqueeItems].map((m, i) => (
-              <span key={i} className="inline-flex items-center gap-3 whitespace-nowrap">
+              <span key={i} className="inline-flex items-center gap-3 whitespace-nowrap text-gradient">
                 <Leaf className="h-4 w-4 text-primary" /> {m}
               </span>
             ))}
@@ -157,14 +157,14 @@ function Index() {
         {features.map((f, i) => (
           <div
             key={f.title}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-soft transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow"
-            style={{ animationDelay: `${i * 0.08}s` }}
+            className="group relative overflow-hidden rounded-2xl glass p-6 hover-lift animate-rise"
+            style={{ animationDelay: `${i * 0.1}s` }}
           >
             <div
               aria-hidden
-              className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[oklch(0.92_0.08_145/_0.6)] blur-2xl transition-transform duration-500 group-hover:scale-150"
+              className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-aurora opacity-40 blur-2xl transition-transform duration-500 group-hover:scale-150 group-hover:opacity-70 animate-hue"
             />
-            <span className="relative grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
+            <span className="relative grid h-11 w-11 place-items-center rounded-xl bg-aurora text-white shadow-glow animate-spin-slow group-hover:animate-hue">
               <f.icon className="h-5 w-5" />
             </span>
             <h3 className="relative mt-4 font-display text-xl">{f.title}</h3>
@@ -176,23 +176,24 @@ function Index() {
       {/* How it works */}
       <section id="how" className="mx-auto max-w-6xl px-6 pb-28">
         <div className="mb-12 max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-primary">How it works</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-gradient">How it works</p>
           <h2 className="mt-3 font-display text-4xl sm:text-5xl">
-            Three steps to a body that feels like yours.
+            <span className="text-gradient">Three steps</span> to a body that feels like yours.
           </h2>
         </div>
         <ol className="grid gap-6 md:grid-cols-3">
           {steps.map((s, i) => (
             <li
               key={s.title}
-              className="relative rounded-2xl border border-border bg-card p-7 shadow-soft"
+              className="relative rounded-2xl glass p-7 hover-lift animate-rise"
+              style={{ animationDelay: `${i * 0.12}s` }}
             >
-              <span className="font-display text-5xl text-primary/40">
+              <span className="font-display text-5xl text-gradient">
                 0{i + 1}
               </span>
               <h3 className="mt-2 font-display text-xl">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
-              <s.icon className="absolute right-6 top-6 h-6 w-6 text-primary/70" />
+              <s.icon className="absolute right-6 top-6 h-6 w-6 text-primary animate-float-y" />
             </li>
           ))}
         </ol>
