@@ -60,18 +60,18 @@ function Index() {
 
       {/* Nav */}
       <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 pt-6">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-glow">
+        <Link to="/" className="flex items-center gap-2 group">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-aurora text-primary-foreground shadow-glow animate-spin-slow group-hover:animate-hue">
             <Leaf className="h-5 w-5" />
           </span>
-          <span className="font-display text-xl">Verda</span>
+          <span className="font-display text-xl text-gradient">Verda</span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm text-muted-foreground sm:flex">
           <a href="#features" className="hover:text-foreground transition-colors">Features</a>
           <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
           <Link to="/dashboard" className="hover:text-foreground transition-colors">Dashboard</Link>
         </nav>
-        <Button asChild size="sm" variant="outline">
+        <Button asChild size="sm" variant="outline" className="glass border-white/20 hover:bg-white/10">
           <Link to="/auth">Sign in</Link>
         </Button>
       </header>
