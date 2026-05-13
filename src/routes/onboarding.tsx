@@ -30,6 +30,7 @@ type FormState = {
   activity_level: Activity;
   goal: Goal;
   workout_location: "gym" | "home";
+  diet_preference: "veg" | "non_veg";
   barriers: string;
 };
 
@@ -42,6 +43,7 @@ const DEFAULT: FormState = {
   activity_level: "moderate",
   goal: "maintain",
   workout_location: "gym",
+  diet_preference: "non_veg",
   barriers: "",
 };
 
@@ -68,6 +70,7 @@ function Onboarding() {
           activity_level: (data.activity_level as Activity) ?? "moderate",
           goal: (data.goal as Goal) ?? "maintain",
           workout_location: (data.workout_location as "gym" | "home") ?? "gym",
+          diet_preference: ((data as { diet_preference?: string }).diet_preference as "veg" | "non_veg") ?? "non_veg",
           barriers: data.barriers ?? "",
         });
       }
@@ -100,6 +103,7 @@ function Onboarding() {
       activity_level: form.activity_level,
       goal: form.goal,
       workout_location: form.workout_location,
+      diet_preference: form.diet_preference,
       barriers: form.barriers,
       bmi,
       maintenance_calories: maintenance,
@@ -153,6 +157,9 @@ function Onboarding() {
             <SelectField label="Where will you train?" value={form.workout_location}
               onChange={(v) => update("workout_location", v as "gym" | "home")}
               options={[["gym","Gym"],["home","Home / no equipment"]]} />
+            <SelectField label="Diet preference" value={form.diet_preference}
+              onChange={(v) => update("diet_preference", v as "veg" | "non_veg")}
+              options={[["veg","Vegetarian"],["non_veg","Non-vegetarian"]]} />
           </Grid>
         </Section>
 
