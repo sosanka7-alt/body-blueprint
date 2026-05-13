@@ -29,25 +29,29 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="relative overflow-hidden bg-hero">
-      {/* Ambient animated background */}
+    <main className="relative overflow-hidden">
+      {/* Psychedelic animated background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-[oklch(0.88_0.10_145/_0.55)] blur-3xl animate-drift" />
+        <div className="absolute -top-40 -left-32 h-[34rem] w-[34rem] bg-[oklch(0.68_0.27_340/_0.55)] blur-3xl animate-drift animate-blob" />
         <div
-          className="absolute top-40 -right-24 h-[22rem] w-[22rem] rounded-full bg-[oklch(0.85_0.12_85/_0.45)] blur-3xl animate-drift"
+          className="absolute top-20 -right-32 h-[30rem] w-[30rem] bg-[oklch(0.78_0.17_210/_0.5)] blur-3xl animate-drift animate-blob"
           style={{ animationDelay: "-6s" }}
         />
         <div
-          className="absolute bottom-0 left-1/3 h-[26rem] w-[26rem] rounded-full bg-[oklch(0.90_0.07_165/_0.45)] blur-3xl animate-drift"
+          className="absolute bottom-0 left-1/4 h-[32rem] w-[32rem] bg-[oklch(0.58_0.24_295/_0.55)] blur-3xl animate-drift animate-blob"
           style={{ animationDelay: "-3s" }}
+        />
+        <div
+          className="absolute top-1/2 right-1/4 h-[20rem] w-[20rem] bg-[oklch(0.88_0.22_130/_0.35)] blur-3xl animate-drift animate-blob"
+          style={{ animationDelay: "-9s" }}
         />
         {/* Subtle grid */}
         <div
-          className="absolute inset-0 opacity-[0.18]"
+          className="absolute inset-0 opacity-[0.15]"
           style={{
             backgroundImage:
-              "linear-gradient(to right, oklch(0.55 0.13 155 / 0.12) 1px, transparent 1px), linear-gradient(to bottom, oklch(0.55 0.13 155 / 0.12) 1px, transparent 1px)",
-            backgroundSize: "44px 44px",
+              "linear-gradient(to right, oklch(1 0 0 / 0.18) 1px, transparent 1px), linear-gradient(to bottom, oklch(1 0 0 / 0.18) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
             maskImage:
               "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
