@@ -312,24 +312,25 @@ function HeroArt() {
       </div>
 
       {/* Orbit */}
-      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-dashed border-primary/30">
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full bg-card shadow-soft">
+      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-dashed border-white/30">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 grid h-9 w-9 place-items-center rounded-full glass shadow-glow animate-spin-rev">
           <Apple className="h-4 w-4 text-primary" />
         </span>
-        <span className="absolute top-1/2 -right-3 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full bg-card shadow-soft">
-          <Timer className="h-4 w-4 text-primary" />
+        <span className="absolute top-1/2 -right-3 -translate-y-1/2 grid h-9 w-9 place-items-center rounded-full glass shadow-glow animate-spin-rev">
+          <Timer className="h-4 w-4 text-accent" />
         </span>
-        <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full bg-card shadow-soft">
-          <Flame className="h-4 w-4 text-primary" />
+        <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 grid h-9 w-9 place-items-center rounded-full glass shadow-glow animate-spin-rev">
+          <Flame className="h-4 w-4 text-[oklch(0.85_0.22_60)]" />
         </span>
-        <span className="absolute top-1/2 -left-3 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full bg-card shadow-soft">
-          <Leaf className="h-4 w-4 text-primary" />
+        <span className="absolute top-1/2 -left-3 -translate-y-1/2 grid h-9 w-9 place-items-center rounded-full glass shadow-glow animate-spin-rev">
+          <Leaf className="h-4 w-4 text-leaf" />
         </span>
       </div>
 
       {/* Center disc — dumbbell */}
-      <div className="absolute left-1/2 top-1/2 grid h-40 w-40 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gradient-to-br from-primary to-[oklch(0.65_0.14_140)] text-primary-foreground shadow-glow animate-float-y">
-        <Dumbbell className="h-16 w-16" strokeWidth={1.5} />
+      <div className="absolute left-1/2 top-1/2 grid h-40 w-40 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-aurora text-white shadow-glow animate-float-y animate-glow">
+        <div className="absolute inset-0 rounded-full animate-hue opacity-80" style={{ background: "var(--gradient-aurora)" }} />
+        <Dumbbell className="relative h-16 w-16" strokeWidth={1.5} />
       </div>
 
       {/* Floating cards */}
