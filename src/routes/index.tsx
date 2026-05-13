@@ -335,19 +335,19 @@ function HeroArt() {
 
       {/* Floating cards */}
       <div
-        className="absolute right-2 top-4 w-44 rounded-2xl border border-border bg-card/95 p-3 shadow-soft backdrop-blur animate-float-y"
+        className="absolute right-2 top-4 w-44 rounded-2xl glass p-3 shadow-glow animate-float-y hover-lift"
         style={{ animationDelay: "-1.5s" }}
       >
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted-foreground">Today</span>
-          <Flame className="h-3.5 w-3.5 text-primary" />
+          <Flame className="h-3.5 w-3.5 text-primary animate-heartbeat" />
         </div>
-        <div className="mt-1 font-display text-2xl">2,140 kcal</div>
+        <div className="mt-1 font-display text-2xl text-gradient">2,140 kcal</div>
         <div className="mt-2 flex items-end gap-1.5 h-10">
           {[0.4, 0.7, 0.55, 0.85, 0.6, 0.95, 0.7].map((h, i) => (
             <span
               key={i}
-              className="flex-1 origin-bottom rounded-sm bg-primary/70"
+              className="flex-1 origin-bottom rounded-sm bg-aurora"
               style={{
                 height: `${h * 100}%`,
                 animation: "bar-grow 0.9s ease-out both",
@@ -359,11 +359,11 @@ function HeroArt() {
       </div>
 
       <div
-        className="absolute left-0 bottom-8 w-48 rounded-2xl border border-border bg-card/95 p-3 shadow-soft backdrop-blur animate-float-y"
+        className="absolute left-0 bottom-8 w-48 rounded-2xl glass p-3 shadow-glow animate-float-y hover-lift"
         style={{ animationDelay: "-3s", ["--r" as string]: "-2deg" }}
       >
         <div className="flex items-center gap-2">
-          <span className="grid h-7 w-7 place-items-center rounded-full bg-primary/10 text-primary">
+          <span className="grid h-7 w-7 place-items-center rounded-full bg-aurora text-white animate-spin-slow">
             <Camera className="h-3.5 w-3.5" />
           </span>
           <div>
@@ -372,16 +372,16 @@ function HeroArt() {
           </div>
         </div>
         <div className="mt-2 grid grid-cols-3 gap-1 text-[11px]">
-          <div className="rounded-md bg-secondary px-2 py-1 text-center">42P</div>
-          <div className="rounded-md bg-secondary px-2 py-1 text-center">38C</div>
-          <div className="rounded-md bg-secondary px-2 py-1 text-center">22F</div>
+          <div className="rounded-md bg-[oklch(0.68_0.27_340/_0.3)] px-2 py-1 text-center border border-white/10">42P</div>
+          <div className="rounded-md bg-[oklch(0.78_0.17_210/_0.3)] px-2 py-1 text-center border border-white/10">38C</div>
+          <div className="rounded-md bg-[oklch(0.88_0.22_130/_0.3)] px-2 py-1 text-center border border-white/10">22F</div>
         </div>
       </div>
 
       <div
-        className="absolute -left-2 top-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-1.5 text-xs shadow-soft animate-float-x"
+        className="absolute -left-2 top-6 inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs shadow-glow animate-float-x"
       >
-        <span className="h-2 w-2 rounded-full bg-primary animate-heartbeat" />
+        <span className="h-2 w-2 rounded-full bg-aurora animate-heartbeat" />
         Streak · 14 days
       </div>
     </div>
