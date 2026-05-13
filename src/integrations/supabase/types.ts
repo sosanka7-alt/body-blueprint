@@ -67,6 +67,7 @@ export type Database = {
           bmi: number | null
           carbs_g: number | null
           created_at: string
+          diet_preference: string | null
           email: string | null
           fat_g: number | null
           full_name: string | null
@@ -90,6 +91,7 @@ export type Database = {
           bmi?: number | null
           carbs_g?: number | null
           created_at?: string
+          diet_preference?: string | null
           email?: string | null
           fat_g?: number | null
           full_name?: string | null
@@ -113,6 +115,7 @@ export type Database = {
           bmi?: number | null
           carbs_g?: number | null
           created_at?: string
+          diet_preference?: string | null
           email?: string | null
           fat_g?: number | null
           full_name?: string | null
