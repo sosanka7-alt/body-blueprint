@@ -201,26 +201,27 @@ function Index() {
 
       {/* CTA */}
       <section className="mx-auto max-w-6xl px-6 pb-28">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-primary p-10 text-primary-foreground shadow-glow sm:p-14">
+        <div className="relative overflow-hidden rounded-3xl bg-aurora p-10 text-white shadow-glow animate-glow sm:p-14">
+          <div aria-hidden className="absolute inset-0 bg-grain opacity-30 mix-blend-overlay" />
           <div
             aria-hidden
-            className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/15 blur-3xl animate-drift"
+            className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/20 blur-3xl animate-drift"
           />
           <div
             aria-hidden
-            className="absolute -bottom-24 -left-10 h-64 w-64 rounded-full bg-black/10 blur-3xl animate-drift"
+            className="absolute -bottom-24 -left-10 h-64 w-64 rounded-full bg-black/20 blur-3xl animate-drift"
             style={{ animationDelay: "-4s" }}
           />
           <div className="relative grid items-center gap-6 md:grid-cols-[1.2fr_auto]">
             <div>
-              <h2 className="font-display text-4xl sm:text-5xl">
+              <h2 className="font-display text-4xl sm:text-5xl drop-shadow-lg">
                 Your strongest year starts today.
               </h2>
-              <p className="mt-3 max-w-xl text-primary-foreground/80">
+              <p className="mt-3 max-w-xl text-white/90">
                 Free to start. No equipment required. Cancel any time.
               </p>
             </div>
-            <Button asChild size="lg" variant="secondary" className="justify-self-start md:justify-self-end">
+            <Button asChild size="lg" variant="secondary" className="justify-self-start md:justify-self-end glass border-white/30 text-white hover:bg-white/20">
               <Link to="/auth">Create your plan</Link>
             </Button>
           </div>
