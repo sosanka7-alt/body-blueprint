@@ -29,25 +29,29 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="relative overflow-hidden bg-hero">
-      {/* Ambient animated background */}
+    <main className="relative overflow-hidden">
+      {/* Psychedelic animated background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-[oklch(0.88_0.10_145/_0.55)] blur-3xl animate-drift" />
+        <div className="absolute -top-40 -left-32 h-[34rem] w-[34rem] bg-[oklch(0.68_0.27_340/_0.55)] blur-3xl animate-drift animate-blob" />
         <div
-          className="absolute top-40 -right-24 h-[22rem] w-[22rem] rounded-full bg-[oklch(0.85_0.12_85/_0.45)] blur-3xl animate-drift"
+          className="absolute top-20 -right-32 h-[30rem] w-[30rem] bg-[oklch(0.78_0.17_210/_0.5)] blur-3xl animate-drift animate-blob"
           style={{ animationDelay: "-6s" }}
         />
         <div
-          className="absolute bottom-0 left-1/3 h-[26rem] w-[26rem] rounded-full bg-[oklch(0.90_0.07_165/_0.45)] blur-3xl animate-drift"
+          className="absolute bottom-0 left-1/4 h-[32rem] w-[32rem] bg-[oklch(0.58_0.24_295/_0.55)] blur-3xl animate-drift animate-blob"
           style={{ animationDelay: "-3s" }}
+        />
+        <div
+          className="absolute top-1/2 right-1/4 h-[20rem] w-[20rem] bg-[oklch(0.88_0.22_130/_0.35)] blur-3xl animate-drift animate-blob"
+          style={{ animationDelay: "-9s" }}
         />
         {/* Subtle grid */}
         <div
-          className="absolute inset-0 opacity-[0.18]"
+          className="absolute inset-0 opacity-[0.15]"
           style={{
             backgroundImage:
-              "linear-gradient(to right, oklch(0.55 0.13 155 / 0.12) 1px, transparent 1px), linear-gradient(to bottom, oklch(0.55 0.13 155 / 0.12) 1px, transparent 1px)",
-            backgroundSize: "44px 44px",
+              "linear-gradient(to right, oklch(1 0 0 / 0.18) 1px, transparent 1px), linear-gradient(to bottom, oklch(1 0 0 / 0.18) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
             maskImage:
               "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
@@ -56,18 +60,18 @@ function Index() {
 
       {/* Nav */}
       <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 pt-6">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-glow">
+        <Link to="/" className="flex items-center gap-2 group">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-aurora text-primary-foreground shadow-glow animate-spin-slow group-hover:animate-hue">
             <Leaf className="h-5 w-5" />
           </span>
-          <span className="font-display text-xl">Verda</span>
+          <span className="font-display text-xl text-gradient">Verda</span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm text-muted-foreground sm:flex">
           <a href="#features" className="hover:text-foreground transition-colors">Features</a>
           <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
           <Link to="/dashboard" className="hover:text-foreground transition-colors">Dashboard</Link>
         </nav>
-        <Button asChild size="sm" variant="outline">
+        <Button asChild size="sm" variant="outline" className="glass border-white/20 hover:bg-white/10">
           <Link to="/auth">Sign in</Link>
         </Button>
       </header>
@@ -75,34 +79,34 @@ function Index() {
       {/* Hero */}
       <section className="relative mx-auto grid max-w-6xl gap-12 px-6 pt-16 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <div className="animate-rise">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs text-muted-foreground">
+            <Sparkles className="h-3.5 w-3.5 text-primary animate-hue" />
             Personal health, simplified
           </p>
           <h1 className="font-display text-5xl leading-[1.02] sm:text-6xl md:text-7xl">
-            Train smarter.
+            <span className="text-gradient">Train smarter.</span>
             <br />
             <span className="relative inline-block">
-              <span className="relative z-10 text-primary">Eat sharper.</span>
+              <span className="relative z-10 text-gradient">Eat sharper.</span>
               <span
                 aria-hidden
-                className="absolute inset-x-0 bottom-2 -z-0 h-3 rounded-full bg-[oklch(0.88_0.12_135/_0.65)]"
+                className="absolute inset-x-0 bottom-2 -z-0 h-3 rounded-full bg-aurora opacity-60 blur-sm animate-hue"
               />
             </span>
             <br />
-            Live <em className="not-italic italic-fraunces text-primary/90">stronger.</em>
+            Live <em className="not-italic italic-fraunces text-gradient">stronger.</em>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
             BMI, daily calories &amp; macros for your goal, a weekly workout plan
             for the gym or your living room, and AI that reads any meal from a photo.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="shadow-glow">
+            <Button asChild size="lg" className="shadow-glow animate-glow bg-aurora text-white border-0 hover:opacity-90">
               <Link to="/auth">
                 Start free <Flame className="ml-1 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="glass border-white/20 hover:bg-white/10">
               <Link to="/dashboard">View dashboard</Link>
             </Button>
           </div>
@@ -133,11 +137,11 @@ function Index() {
       </section>
 
       {/* Marquee */}
-      <div className="relative z-10 border-y border-border bg-card/60 py-4 backdrop-blur">
+      <div className="relative z-10 border-y border-white/10 glass py-4">
         <div className="flex overflow-hidden">
-          <div className="flex shrink-0 animate-marquee gap-12 pr-12 font-display text-2xl text-muted-foreground">
+          <div className="flex shrink-0 animate-marquee gap-12 pr-12 font-display text-2xl">
             {[...marqueeItems, ...marqueeItems].map((m, i) => (
-              <span key={i} className="inline-flex items-center gap-3 whitespace-nowrap">
+              <span key={i} className="inline-flex items-center gap-3 whitespace-nowrap text-gradient">
                 <Leaf className="h-4 w-4 text-primary" /> {m}
               </span>
             ))}
@@ -153,14 +157,14 @@ function Index() {
         {features.map((f, i) => (
           <div
             key={f.title}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-soft transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow"
-            style={{ animationDelay: `${i * 0.08}s` }}
+            className="group relative overflow-hidden rounded-2xl glass p-6 hover-lift animate-rise"
+            style={{ animationDelay: `${i * 0.1}s` }}
           >
             <div
               aria-hidden
-              className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[oklch(0.92_0.08_145/_0.6)] blur-2xl transition-transform duration-500 group-hover:scale-150"
+              className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-aurora opacity-40 blur-2xl transition-transform duration-500 group-hover:scale-150 group-hover:opacity-70 animate-hue"
             />
-            <span className="relative grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
+            <span className="relative grid h-11 w-11 place-items-center rounded-xl bg-aurora text-white shadow-glow animate-spin-slow group-hover:animate-hue">
               <f.icon className="h-5 w-5" />
             </span>
             <h3 className="relative mt-4 font-display text-xl">{f.title}</h3>
@@ -172,23 +176,24 @@ function Index() {
       {/* How it works */}
       <section id="how" className="mx-auto max-w-6xl px-6 pb-28">
         <div className="mb-12 max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-primary">How it works</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-gradient">How it works</p>
           <h2 className="mt-3 font-display text-4xl sm:text-5xl">
-            Three steps to a body that feels like yours.
+            <span className="text-gradient">Three steps</span> to a body that feels like yours.
           </h2>
         </div>
         <ol className="grid gap-6 md:grid-cols-3">
           {steps.map((s, i) => (
             <li
               key={s.title}
-              className="relative rounded-2xl border border-border bg-card p-7 shadow-soft"
+              className="relative rounded-2xl glass p-7 hover-lift animate-rise"
+              style={{ animationDelay: `${i * 0.12}s` }}
             >
-              <span className="font-display text-5xl text-primary/40">
+              <span className="font-display text-5xl text-gradient">
                 0{i + 1}
               </span>
               <h3 className="mt-2 font-display text-xl">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
-              <s.icon className="absolute right-6 top-6 h-6 w-6 text-primary/70" />
+              <s.icon className="absolute right-6 top-6 h-6 w-6 text-primary animate-float-y" />
             </li>
           ))}
         </ol>
@@ -196,26 +201,27 @@ function Index() {
 
       {/* CTA */}
       <section className="mx-auto max-w-6xl px-6 pb-28">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-primary p-10 text-primary-foreground shadow-glow sm:p-14">
+        <div className="relative overflow-hidden rounded-3xl bg-aurora p-10 text-white shadow-glow animate-glow sm:p-14">
+          <div aria-hidden className="absolute inset-0 bg-grain opacity-30 mix-blend-overlay" />
           <div
             aria-hidden
-            className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/15 blur-3xl animate-drift"
+            className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/20 blur-3xl animate-drift"
           />
           <div
             aria-hidden
-            className="absolute -bottom-24 -left-10 h-64 w-64 rounded-full bg-black/10 blur-3xl animate-drift"
+            className="absolute -bottom-24 -left-10 h-64 w-64 rounded-full bg-black/20 blur-3xl animate-drift"
             style={{ animationDelay: "-4s" }}
           />
           <div className="relative grid items-center gap-6 md:grid-cols-[1.2fr_auto]">
             <div>
-              <h2 className="font-display text-4xl sm:text-5xl">
+              <h2 className="font-display text-4xl sm:text-5xl drop-shadow-lg">
                 Your strongest year starts today.
               </h2>
-              <p className="mt-3 max-w-xl text-primary-foreground/80">
+              <p className="mt-3 max-w-xl text-white/90">
                 Free to start. No equipment required. Cancel any time.
               </p>
             </div>
-            <Button asChild size="lg" variant="secondary" className="justify-self-start md:justify-self-end">
+            <Button asChild size="lg" variant="secondary" className="justify-self-start md:justify-self-end glass border-white/30 text-white hover:bg-white/20">
               <Link to="/auth">Create your plan</Link>
             </Button>
           </div>
@@ -306,41 +312,42 @@ function HeroArt() {
       </div>
 
       {/* Orbit */}
-      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-dashed border-primary/30">
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full bg-card shadow-soft">
+      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-dashed border-white/30">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 grid h-9 w-9 place-items-center rounded-full glass shadow-glow animate-spin-rev">
           <Apple className="h-4 w-4 text-primary" />
         </span>
-        <span className="absolute top-1/2 -right-3 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full bg-card shadow-soft">
-          <Timer className="h-4 w-4 text-primary" />
+        <span className="absolute top-1/2 -right-3 -translate-y-1/2 grid h-9 w-9 place-items-center rounded-full glass shadow-glow animate-spin-rev">
+          <Timer className="h-4 w-4 text-accent" />
         </span>
-        <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full bg-card shadow-soft">
-          <Flame className="h-4 w-4 text-primary" />
+        <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 grid h-9 w-9 place-items-center rounded-full glass shadow-glow animate-spin-rev">
+          <Flame className="h-4 w-4 text-[oklch(0.85_0.22_60)]" />
         </span>
-        <span className="absolute top-1/2 -left-3 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full bg-card shadow-soft">
-          <Leaf className="h-4 w-4 text-primary" />
+        <span className="absolute top-1/2 -left-3 -translate-y-1/2 grid h-9 w-9 place-items-center rounded-full glass shadow-glow animate-spin-rev">
+          <Leaf className="h-4 w-4 text-leaf" />
         </span>
       </div>
 
       {/* Center disc — dumbbell */}
-      <div className="absolute left-1/2 top-1/2 grid h-40 w-40 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gradient-to-br from-primary to-[oklch(0.65_0.14_140)] text-primary-foreground shadow-glow animate-float-y">
-        <Dumbbell className="h-16 w-16" strokeWidth={1.5} />
+      <div className="absolute left-1/2 top-1/2 grid h-40 w-40 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-aurora text-white shadow-glow animate-float-y animate-glow">
+        <div className="absolute inset-0 rounded-full animate-hue opacity-80" style={{ background: "var(--gradient-aurora)" }} />
+        <Dumbbell className="relative h-16 w-16" strokeWidth={1.5} />
       </div>
 
       {/* Floating cards */}
       <div
-        className="absolute right-2 top-4 w-44 rounded-2xl border border-border bg-card/95 p-3 shadow-soft backdrop-blur animate-float-y"
+        className="absolute right-2 top-4 w-44 rounded-2xl glass p-3 shadow-glow animate-float-y hover-lift"
         style={{ animationDelay: "-1.5s" }}
       >
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted-foreground">Today</span>
-          <Flame className="h-3.5 w-3.5 text-primary" />
+          <Flame className="h-3.5 w-3.5 text-primary animate-heartbeat" />
         </div>
-        <div className="mt-1 font-display text-2xl">2,140 kcal</div>
+        <div className="mt-1 font-display text-2xl text-gradient">2,140 kcal</div>
         <div className="mt-2 flex items-end gap-1.5 h-10">
           {[0.4, 0.7, 0.55, 0.85, 0.6, 0.95, 0.7].map((h, i) => (
             <span
               key={i}
-              className="flex-1 origin-bottom rounded-sm bg-primary/70"
+              className="flex-1 origin-bottom rounded-sm bg-aurora"
               style={{
                 height: `${h * 100}%`,
                 animation: "bar-grow 0.9s ease-out both",
@@ -352,11 +359,11 @@ function HeroArt() {
       </div>
 
       <div
-        className="absolute left-0 bottom-8 w-48 rounded-2xl border border-border bg-card/95 p-3 shadow-soft backdrop-blur animate-float-y"
+        className="absolute left-0 bottom-8 w-48 rounded-2xl glass p-3 shadow-glow animate-float-y hover-lift"
         style={{ animationDelay: "-3s", ["--r" as string]: "-2deg" }}
       >
         <div className="flex items-center gap-2">
-          <span className="grid h-7 w-7 place-items-center rounded-full bg-primary/10 text-primary">
+          <span className="grid h-7 w-7 place-items-center rounded-full bg-aurora text-white animate-spin-slow">
             <Camera className="h-3.5 w-3.5" />
           </span>
           <div>
@@ -365,16 +372,16 @@ function HeroArt() {
           </div>
         </div>
         <div className="mt-2 grid grid-cols-3 gap-1 text-[11px]">
-          <div className="rounded-md bg-secondary px-2 py-1 text-center">42P</div>
-          <div className="rounded-md bg-secondary px-2 py-1 text-center">38C</div>
-          <div className="rounded-md bg-secondary px-2 py-1 text-center">22F</div>
+          <div className="rounded-md bg-[oklch(0.68_0.27_340/_0.3)] px-2 py-1 text-center border border-white/10">42P</div>
+          <div className="rounded-md bg-[oklch(0.78_0.17_210/_0.3)] px-2 py-1 text-center border border-white/10">38C</div>
+          <div className="rounded-md bg-[oklch(0.88_0.22_130/_0.3)] px-2 py-1 text-center border border-white/10">22F</div>
         </div>
       </div>
 
       <div
-        className="absolute -left-2 top-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-1.5 text-xs shadow-soft animate-float-x"
+        className="absolute -left-2 top-6 inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs shadow-glow animate-float-x"
       >
-        <span className="h-2 w-2 rounded-full bg-primary animate-heartbeat" />
+        <span className="h-2 w-2 rounded-full bg-aurora animate-heartbeat" />
         Streak · 14 days
       </div>
     </div>
