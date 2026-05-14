@@ -48,10 +48,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Verda — Personalized BMI, Calories & Workout Plans" },
+      { title: "Fit-do — Personalized BMI, Calories & Workout Plans" },
       { name: "description", content: "Get your BMI, daily calories, custom workout plan, and AI meal nutrition from a photo." },
-      { property: "og:title", content: "Verda — Personalized BMI, Calories & Workout Plans" },
-      { name: "twitter:title", content: "Verda — Personalized BMI, Calories & Workout Plans" },
+      { property: "og:title", content: "Fit-do — Personalized BMI, Calories & Workout Plans" },
+      { name: "twitter:title", content: "Fit-do — Personalized BMI, Calories & Workout Plans" },
       { property: "og:description", content: "Get your BMI, daily calories, custom workout plan, and AI meal nutrition from a photo." },
       { name: "twitter:description", content: "Get your BMI, daily calories, custom workout plan, and AI meal nutrition from a photo." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7256912b-48e0-4221-8aca-70fa9601b5c6/id-preview-2ce9a63f--e0c57457-090e-4d80-9ae8-c35459031831.lovable.app-1778427859727.png" },
@@ -81,11 +81,11 @@ function NavBar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+        <Link to="/" className="flex items-center gap-2 group">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-charcoal-grad text-silver border border-white/10 group-hover:rotate-12 transition-transform duration-500">
             <Leaf className="h-4 w-4" />
           </span>
-          <span className="font-display text-xl font-semibold">Verda</span>
+          <span className="font-display text-xl font-semibold text-shimmer">Fit-do</span>
         </Link>
         <nav className="flex items-center gap-2 text-sm">
           {user ? (
