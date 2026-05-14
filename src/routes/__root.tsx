@@ -81,11 +81,11 @@ function NavBar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
+        <Link to="/" className="flex items-center gap-2 group">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-charcoal-grad text-silver border border-white/10 group-hover:rotate-12 transition-transform duration-500">
             <Leaf className="h-4 w-4" />
           </span>
-          <span className="font-display text-xl font-semibold">Verda</span>
+          <span className="font-display text-xl font-semibold text-shimmer">Fit-do</span>
         </Link>
         <nav className="flex items-center gap-2 text-sm">
           {user ? (
